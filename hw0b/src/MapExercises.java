@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,7 +8,13 @@ public class MapExercises {
      */
     public static Map<Character, Integer> letterToNum() {
         // TODO: Fill in this function.
-        return null;
+        int counter = 1;
+        Map<Character, Integer>  result = new HashMap<>();
+        for (char c = 'a'; c <= 'z'; ++c) {
+            result.put(c, counter);
+            counter++;
+        }
+        return result;
     }
 
     /** Returns a map from the integers in the list to their squares. For example, if the input list
@@ -15,12 +22,25 @@ public class MapExercises {
      */
     public static Map<Integer, Integer> squares(List<Integer> nums) {
         // TODO: Fill in this function.
-        return null;
+        Map<Integer,Integer> result = new HashMap<>();
+        for(Integer num : nums) {
+            result.put(num, (int) Math.pow(num, 2));
+        }
+        return result;
     }
 
     /** Returns a map of the counts of all words that appear in a list of words. */
     public static Map<String, Integer> countWords(List<String> words) {
         // TODO: Fill in this function.
-        return null;
+        Map<String, Integer> result = new HashMap<>();
+
+        for (String word : words) {
+            if (result.containsKey(word)) {
+                result.put(word, result.get(word) + 1);
+            } else {
+                result.put(word, 1);
+            }
+        }
+        return result;
     }
 }
